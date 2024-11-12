@@ -1,1 +1,13 @@
-<p>Article id {{ articleId }}</p>
+<section class="article-container">
+  @if (article) {
+    <h1 class="article-title">{{ article.title }}</h1>
+    <p class="article-category"><strong>Catégorie :</strong> {{ article.categoryName }}</p>
+    <p class="article-date"><strong>Publié le :</strong> {{ article.createdAt | date: 'dd/MM/yyyy' }}</p>
+    <img [src]="article.image" [alt]="article.title" class="article-image" />
+    <p class="article-content">{{ article.content }}</p>
+    <p class="article-likes"><strong>Likes :</strong> {{ article.likeCount }}</p>
+    <p class="article-status">{{ article.isPublished ? 'Publié' : 'Non publié' }}</p>
+  } @else {
+    <p class="no-article">Aucun article trouvé</p>
+  }
+</section>
